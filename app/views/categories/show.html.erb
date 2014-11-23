@@ -1,0 +1,35 @@
+<% @page_title = " view category "%>
+<div><%= link_to('<< Back to list of categories', action: 'index') %></div>
+<table>
+	<tr>
+		<th>Name</th>
+		<td><%= @category.name %></td>
+	</tr>
+	<tr>
+		<th>Intro</th>
+		<td><%= @category.intro %></td>
+	</tr>
+	<tr>
+		<th>Tags</th>
+		<% tags = @category.tags %>
+		<td>
+			<% if tags.empty? %>
+				There is no tags for this category
+			<% else %>
+				<% tags.each do |tag| %>
+					<%= link_to(tag.name, controller: 'tags', action: 'show', id: tag.id) %>
+				<% end %>
+			<% end %>
+		</td>
+	</tr>
+	<tr>
+		<th>Edit category</th>
+		<td><%= link_to('edit', action: 'edit', id: @category.id) %></td>
+	</tr>
+	<tr>
+		<th>Delete category</th>
+		<td><%= link_to('delete', action: 'destroy', id: @category.id) %></td>
+	</tr>
+	
+</table>
+

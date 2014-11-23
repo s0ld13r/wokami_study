@@ -1,0 +1,28 @@
+<div>
+	<div>
+		<%= link_to("Create a new tag", action: 'new') %>
+	</div>
+	<h1>Tags </h1>
+	<% if @tags.empty?%>
+		<p>There is no existing tags in the system</p>
+	<% else %>
+		<table>
+			<tr>
+				<th>id</th>
+				<th>name</th>
+				<th>show</th>
+				<th>edit</th>
+				<th>delete</th>
+			</tr>
+			<% @tags.each do |tag| %>
+				<tr>
+					<td><%= tag.id %></td>
+					<td><%= tag.name %></td>
+					<td><%= link_to("show", action: 'show', id: tag.id) %></td>
+					<td><%= link_to("edit", action: 'edit', id: tag.id) %></td>
+					<td><%= link_to("delete", action: 'destroy' , id: tag.id) %></td>
+				</tr>
+			<% end %>
+		</table>
+	<% end %>
+</div>

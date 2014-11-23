@@ -1,0 +1,28 @@
+<div>
+	<div>
+		<%= link_to("Create a new post", action: 'new') %>
+	</div>
+	<h1>Posts </h1>
+	<% if @posts.empty?%>
+		<p>There is no existing posts in the system</p>
+	<% else %>
+		<table>
+			<tr>
+				<th>id</th>
+				<th>title</th>
+				<th>show</th>
+				<th>edit</th>
+				<th>delete</th>
+			</tr>
+			<% @posts.each do |post| %>
+				<tr>
+					<td><%= post.id %></td>
+					<td><%= post.title %></td>
+					<td><%= link_to("show", action: 'show', id: post.id) %></td>
+					<td><%= link_to("edit", action: 'edit', id: post.id) %></td>
+					<td><%= link_to("delete", action: 'destroy' , id: post.id) %></td>
+				</tr>
+			<% end %>
+		</table>
+	<% end %>
+</div>

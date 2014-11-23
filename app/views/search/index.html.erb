@@ -1,0 +1,11 @@
+<% @page_title = "Search" %>
+<h1>Search</h1>
+<%= form_for(:category_tag, :url => {:action => 'search'}) do |f | %>
+	<% @categories.each do |cat|  %>
+		<% if !cat.tags.empty? %>
+			<%= f.select(:"#{cat.id}", cat.tags.map { |tag| [tag.name, tag.id]} , prompt: cat.intro)%>
+		<% end %>
+	<% end %>
+	<br/>
+	<%= submit_tag("Search") %>
+<% end %>

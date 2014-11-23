@@ -1,0 +1,22 @@
+<% @page_title = " view tag "%>
+<div><%= link_to('<< Back to list of tags', action: 'index') %></div>
+<table>
+	<tr>
+		<th>Name</th>
+		<td><%= @tag.name %></td>
+	</tr>
+
+	<tr>
+		<th>Category</th>
+		<td><%= @tag.category.name %></td>
+	</tr>
+	<tr>
+		<th>Edit tag</th>
+		<td><%= link_to('edit', action: 'edit', id: @tag.id) %></td>
+	</tr>
+	<tr>
+		<th>Delete tag</th>
+		<td><%= link_to('delete', action: 'destroy', id: @tag.id) %></td>
+	</tr>
+	
+</table>

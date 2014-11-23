@@ -1,0 +1,7 @@
+<% @page_title = " edit category "%>
+<div><%= link_to('<< Back to list of categories', action: 'index') %></div>
+<h1>Update category</h1>
+<%= form_for(:category , :url => {action: 'update', id: @category.id}) do |f| %>
+	<%= render(:partial => 'categories/form', :locals => {:f => f}) %>
+	<%= submit_tag("Update Category") %>
+<% end %>

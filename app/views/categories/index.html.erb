@@ -1,0 +1,28 @@
+<div>
+	<div>
+		<%= link_to("Create a new category", action: 'new') %>
+	</div>
+	<h1>Categories </h1>
+	<% if @categories.empty?%>
+		<p>There is no existing categories in the system</p>
+	<% else %>
+		<table>
+			<tr>
+				<th>id</th>
+				<th>name</th>
+				<th>show</th>
+				<th>edit</th>
+				<th>delete</th>
+			</tr>
+			<% @categories.each do |cat| %>
+				<tr>
+					<td><%= cat.id %></td>
+					<td><%= cat.name %></td>
+					<td><%= link_to("show", action: 'show', id: cat.id) %></td>
+					<td><%= link_to("edit", action: 'edit', id: cat.id) %></td>
+					<td><%= link_to("delete", action: 'destroy' , id: cat.id) %></td>
+				</tr>
+			<% end %>
+		</table>
+	<% end %>
+</div>

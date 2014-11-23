@@ -1,0 +1,42 @@
+<% @page_title = " view post "%>
+<div><%= link_to('<< Back to list of posts', action: 'index') %></div>
+<table>
+	<tr>
+		<th>Title</th>
+		<td><%= @post.title %></td>
+	</tr>
+
+	<tr>
+		<th>Description</th>
+		<td><%= @post.description %></td>
+	</tr>
+
+	<tr>
+		<th>URL</th>
+		<td><%= link_to @post.url %></td>
+	</tr>
+
+	<tr>
+		<% tags = @post.tags %>
+		<th>Tags</th>
+		<td>
+			<% if tags.empty? %>
+				There is no tags for this post
+			<% else %>
+				<% tags.each do |tag| %>
+					<%= link_to(tag.name, controller: 'tags', action: 'show', id: tag.id) %>
+				<% end %>
+			<% end %>
+		</td>
+	</tr>
+
+	<tr>
+		<th>Edit post</th>
+		<td><%= link_to('edit', action: 'edit', id: @post.id) %></td>
+	</tr>
+	<tr>
+		<th>Delete tag</th>
+		<td><%= link_to('delete', action: 'destroy', id: @post.id) %></td>
+	</tr>
+	
+</table>
